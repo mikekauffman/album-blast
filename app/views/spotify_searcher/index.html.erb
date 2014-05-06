@@ -4,7 +4,7 @@
     <input type="submit" class="pure-button pure-button-primary" value="Blast!">
   </form>
 </div>
-<div style="text-align: center">
+<div style="text-align: center; margin-top: .2em">
   <% if @json_data %>
       <% @json_data["albums"].each do |album| %>
           <iframe src="https://embed.spotify.com/?uri=<%= album["href"] %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>

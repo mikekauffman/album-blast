@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'spotify_searcher/songs'
 
-  get 'spotify_searcher/albums'
-
-  resources :spotify_searcher
+  root 'spotify_searcher#index'
+  post '/search' => 'spotify_searcher#search'
+  get '/:name' => 'spotify_searcher#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,13 @@
+<div style="background-color: cornflowerblue; height: 5em">
+  <form style="text-align: center; padding-top: 1em" class="pure-form" action="/search" method="post">
+    <input type="text" name="search_term" placeholder='Enter Search Term'>
+    <input type="submit" class="pure-button pure-button-primary" value="Search">
+  </form>
+</div>
+<div style="text-align: center; background-color: lightsteelblue">
+  <% if @json_data %>
+      <% @json_data["albums"].each do |album| %>
+          <iframe src="https://embed.spotify.com/?uri=<%= album["href"] %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+      <% end %>
+  <% end %>
+</div>

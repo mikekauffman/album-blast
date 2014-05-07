@@ -1,19 +1,11 @@
 require 'spec_helper'
 
-describe SpotifySearcherController do
+feature 'User interacts with the app' do
 
-  describe "GET 'songs'" do
-    it "returns http success" do
-      get 'songs'
-      response.should be_success
-    end
-  end
+  scenario 'User can search for an artist or band name' do
 
-  describe "GET 'albums'" do
-    it "returns http success" do
-      get 'albums'
-      response.should be_success
-    end
+
+
   end
 
 end

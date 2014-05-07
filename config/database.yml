@@ -1,23 +1,18 @@
-development:
-  adapter: postgresql
-  encoding: utf8
-  database: album_blast_development
-  pool: 5
-  username: gschool_user
-  password: password
+  default: &default
+    adapter: postgresql
+    encoding: unicode
+    pool: 5
 
-test: &TEST
-  adapter: postgresql
-  encoding: utf8
-  database: album_blast_test
-  pool: 5
-  username: gschool_user
-  password: password
+  development:
+    <<: *default
+    database: album_blast_development
 
-production:
-  adapter: postgresql
-  encoding: utf8
-  database: album_blast_production
-  pool: 5
-  username: gschool_user
-  password: password
+  test:
+    <<: *default
+    database: album_blast_test
+
+  production:
+    <<: *default
+    database: album_blast_production
+    username: album_blast
+    password: <%= ENV['ALBUM_BLAST_DATABASE_PASSWORD'] %>

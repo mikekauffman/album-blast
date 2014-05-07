@@ -8,6 +8,7 @@ class SpotifySearcherController < ApplicationController
 
   def index
     if params[:name]
+      @search_term = params[:name]
       @json_data = SpotifySearcher.search(params[:name].gsub("%20", "#"))
     end
   end

@@ -1,13 +1,27 @@
-<div style="background-color: #0B486B; height: 5em">
-  <form style="text-align: center; padding-top: 1.2em" class="pure-form" action="/search" method="post">
-    <input type="text" name="search_term" placeholder='Enter Band or Artist Name'>
-    <input type="submit" class="pure-button pure-button-primary" value="Blast!">
-  </form>
-</div>
-<div style="text-align: center; margin-top: .2em">
-  <% if @json_data %>
-      <% @json_data["albums"].each do |album| %>
-          <iframe src="https://embed.spotify.com/?uri=<%= album["href"] %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+<% if @json_data %>
+    <div style="background-color: #0B486B; height: 5em">
+      <form style="text-align: center; padding-top: 1.2em" class="pure-form" action="/search" method="post">
+        <input type="text" name="search_term" value="<%=@search_term%>">
+        <input type="submit" class="pure-button pure-button-primary" value="Blast!">
+      </form>
+    </div>
+    <div style="text-align: center; margin-top: .2em">
+      <% if @json_data %>
+          <% @json_data["albums"].each do |album| %>
+              <iframe src="https://embed.spotify.com/?uri=<%= album["href"] %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+          <% end %>
       <% end %>
-  <% end %>
-</div>
+    </div>
+<% else %>
+    <div style="background-color: #0B486B; min-height: 100%">
+      <div style="text-align: center; padding-top: 4.8%">
+        <%= image_tag 'record-set.png' %>
+      </div>
+      <div id="centerdiv">
+      <form style="text-align: center; margin: auto" class="pure-form" action="/search" method="post">
+        <input type="text" name="search_term" placeholder='Enter Band or Artist Name'>
+        <input type="submit" class="pure-button pure-button-primary" value="Blast!">
+      </form>
+      </div>
+    </div>
+<% end %>

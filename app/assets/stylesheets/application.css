@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#centerdiv {
+    width:308px;
+    height:50px;
+    position:absolute;
+    left:50%;
+    top:60%;
+    margin:-100px 0 0 -150px;
+}
